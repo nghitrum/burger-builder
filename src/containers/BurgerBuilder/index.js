@@ -1,10 +1,11 @@
 import React, { Component, Fragment } from 'react';
+import Burger from '../../components/Burger';
 
 class BurderBuilder extends Component {
 	render() {
 		return (
 			<Fragment>
-				<div>Burger</div>
+				<Burger />
 				<div>Build Control</div>
 			</Fragment>
 		);
