@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import Layout from './components/Layout';
+import BurderBuilder from './containers/BurgerBuilder';
 
 class App extends Component {
 	render() {
 		return (
 			<div>
 				<Layout>
-					<h1>hello world</h1>
+					<BurderBuilder />
 				</Layout>
 			</div>
 		);
