@@ -19,6 +19,7 @@ class BurgerBuilder extends Component {
 		super(props);
 
 		this.state = {
+			defaultIngredients: null,
 			ingredients: null,
 			totalPrice: 4,
 			purchasable: false,
@@ -33,7 +34,10 @@ class BurgerBuilder extends Component {
 			.get('/ingredients.json')
 			.then((res) => {
 				console.log(res);
-				this.setState({ ingredients: res.data });
+				this.setState({
+					ingredients: res.data,
+					defaultIngredients: res.data
+				});
 			})
 			.catch((error) => {
 				console.log(error);
@@ -127,12 +131,13 @@ class BurgerBuilder extends Component {
 			.post('/orders.json', order)
 			.then((response) => {
 				console.log(response);
+				this.setState({ ingredients: this.state.defaultIngredients });
 			})
 			.catch((error) => {
 				console.log(error);
 			})
 			.finally(() => {
-				this.setState({ loading: true, purchasing: false });
+				this.setState({ loading: false, purchasing: false });
 			});
 	};
 
